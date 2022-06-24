@@ -102,11 +102,13 @@ namespace OshoPortal.Controllers
         {
             return View();
         }
+
         [AllowAnonymous]
         public ActionResult ForgotPassword()
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult ForgotPassword(ForgotPassword forgot)
         {
@@ -148,11 +150,13 @@ namespace OshoPortal.Controllers
 
             return this.View();
         }
+
         [AllowAnonymous]
         public ActionResult OneTimePassword()
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult OneTimePassword( OneTimePassword password)
         {
@@ -194,6 +198,7 @@ namespace OshoPortal.Controllers
             };
             return View();
         }
+
         public ActionResult LogOut()
         {
             //loging out from the portal
