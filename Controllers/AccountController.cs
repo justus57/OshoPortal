@@ -31,9 +31,8 @@ namespace OshoPortal.Controllers
             string RequirePassChnage = null;
 
             //hash password
-            //var hashpassword = Functions.ComputeSha256Hash(password);
-            var hashpassword = password;
-
+            var hashpassword = Functions.ComputeSha256Hash(password);
+     
             ///start session for user
             var profileData = new Login
             {
