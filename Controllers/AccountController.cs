@@ -80,7 +80,6 @@ namespace OshoPortal.Controllers
                             return View("Login");
                         }
                     }
-                   
                 }
                 catch (Exception ex)
                 {
@@ -95,7 +94,6 @@ namespace OshoPortal.Controllers
                 return View("Login");
             }
             return View();
-
         }
         public ActionResult Register()
         {
