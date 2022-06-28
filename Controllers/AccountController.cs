@@ -84,7 +84,7 @@ namespace OshoPortal.Controllers
                 }
                 catch (Exception ex)
                 {
-                    SystemLogs.WriteLog(ex.Message.ToString() + "Login Error");
+                    SystemLogs.WriteLog(ex.Message.ToString( ));
                 }
             }
             catch (Exception ex)
