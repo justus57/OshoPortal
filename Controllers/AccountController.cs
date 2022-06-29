@@ -139,13 +139,11 @@ namespace OshoPortal.Controllers
                 ViewBag.Message = Msg;
                 SystemLogs.WriteLog(es.Message);
             }
-
             var _RequestResponse = new RequestResponse
             {
                 Status = status,
                 Message = Msg,
             };
-
             return this.View();
         }
 
