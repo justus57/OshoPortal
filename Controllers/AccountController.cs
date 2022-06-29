@@ -39,6 +39,7 @@ namespace OshoPortal.Controllers
                 Username = username
             };  
             this.Session["UserProfile"] = profileData;
+
             //confirm details
             try
             {
