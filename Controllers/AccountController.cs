@@ -118,7 +118,6 @@ namespace OshoPortal.Controllers
                 dynamic json = ForgotPasswordXmlRequest.ForgotPassword(EmployeeNo);
                 status = json.Status;
                 Msg = json.Msg;
-
                 if (status == "000")
                 {
                     status = "000";
