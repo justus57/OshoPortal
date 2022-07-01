@@ -33,5 +33,16 @@ namespace OshoPortal.Properties {
                 return ((string)(this["OshoPortal_WebRef_PortalLogin"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://btl-svr-01.btl.local:8047/BC180-1/WS/Osho%20Chemical%20Industries%20Ltd/Co" +
+            "deunit/webportal")]
+        public string OshoPortal_Webportal_webportal {
+            get {
+                return ((string)(this["OshoPortal_Webportal_webportal"]));
+            }
+        }
     }
 }

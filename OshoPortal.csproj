@@ -149,6 +149,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Web References\Webportal\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\WebRef\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -539,6 +544,17 @@
     <Content Include="Views\Approvals\Approvals.cshtml" />
     <Content Include="Views\CreateStoreRequestion\CreateStoreRequestion.cshtml" />
     <Content Include="Views\Account\OneTimePassword.cshtml" />
+    <Content Include="Web References\Webportal\ItemList.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Webportal\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\Webportal\Requisationwebportal.wsdl" />
+    <Content Include="Web References\Webportal\RequisitionHeaderList.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
     <None Include="Web References\WebRef\PortalLogin.wsdl" />
     <Content Include="Web References\WebRef\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
@@ -586,6 +602,17 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>OshoPortal_WebRef_PortalLogin</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\Users\kasyoki.justus\Downloads\Requisationwebportal.xml">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Webportal\</RelPath>
+      <UpdateFromURL>C:\Users\kasyoki.justus\Downloads\Requisationwebportal.xml</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>OshoPortal_Webportal_webportal</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <PropertyGroup>
