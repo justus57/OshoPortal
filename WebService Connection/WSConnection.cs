@@ -88,6 +88,81 @@ namespace OshoPortal.WebService_Connection
 
             return responseString;
         }
+        public static string CallWebServicePortal(string req)
+        {
+            string action = "";
+            var _url = "http://btl-svr-01.btl.local:8047/BC180-1/WS/Osho%20Chemical%20Industries%20Ltd/Codeunit/PortalLogin";
+            var _action = action;
+            try
+            {
+                XmlDocument soapEnvelopeXml = CreateSoapEnvelope(req);
+                HttpWebRequest webRequest = CreateWebRequest(_url, _action);
+                try
+                {
+                    InsertSoapEnvelopeIntoWebRequest(soapEnvelopeXml, webRequest);
+
+                    // begin async call to web request.
+                    IAsyncResult asyncResult = webRequest.BeginGetResponse(null, null);
+
+                    // suspend this thread until call is complete. You might want to
+                    // do something usefull here like update your UI.
+                    asyncResult.AsyncWaitHandle.WaitOne();
+
+                    // get the response from the completed web request.
+                    string soapResult;
+
+                    using (WebResponse webResponse = webRequest.EndGetResponse(asyncResult))
+                    {
+                        using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
+                        {
+                            soapResult = rd.ReadToEnd();
+                        }
+                        responseString = soapResult;
+                    }
+                }
+                catch (WebException ex)
+                {
+                    StreamReader responseReader = null;
+
+                    string exMessage = ex.Message;
+
+                    if (ex.Response != null)
+                    {
+                        using (responseReader = new StreamReader(ex.Response.GetResponseStream()))
+                        {
+                            responseString = responseReader.ReadToEnd();
+                        }
+                    }
+                }
+            }
+            catch (WebException ex) when (ex.Status == WebExceptionStatus.ProtocolError)
+            {
+                //code specifically for a WebException ProtocolError
+                ex.Message.ToString();
+            }
+            //catch (WebException ex) when ((ex.Response as HttpWebResponse)?.StatusCode == HttpStatusCode.NotFound)
+            //{
+            //    //code specifically for a WebException NotFound
+            //    responseString = ParseExceptionRespose(ex);
+            //}
+            //catch (WebException ex) when ((ex.Response as HttpWebResponse)?.StatusCode == HttpStatusCode.InternalServerError)
+            //{
+            //    //code specifically for a WebException InternalServerError
+            //    responseString = ParseExceptionRespose(ex);
+            //}
+            //catch (WebException ex) when (ex.Status == WebExceptionStatus.Timeout)
+            //{
+            //    //code specifically for a WebException InternalServerError
+            //    responseString = ParseExceptionRespose(ex);
+            //}
+            //finally
+            //{
+            //    //call this if exception occurs or not
+            //    //wc?.Dispose();
+            //}
+
+            return responseString;
+        }
         private static HttpWebRequest CreateWebRequest(string url, string action)
         {
             ServicePointManager.Expect100Continue = true;

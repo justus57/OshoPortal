@@ -17,6 +17,7 @@ namespace OshoPortal.Controllers
         public ActionResult CreatePurchase()
         {
             return View();
+
         }
     }
 }
