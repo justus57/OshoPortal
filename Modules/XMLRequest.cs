@@ -1,8 +1,10 @@
 ﻿using OshoPortal.WebService_Connection;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
+using System.Xml;
 
 namespace OshoPortal.Modules
 {
@@ -17,14 +19,14 @@ namespace OshoPortal.Modules
             string req = @"<Envelope xmlns=""http://schemas.xmlsoap.org/soap/envelope/"">
                                 <Body>
                                     <ConfirmEmployeePassword xmlns=""urn:microsoft-dynamics-schemas/codeunit/PortalLogin"">
-                                        <employeeNo>"+username+@"</employeeNo>
-                                        <password>"+ password + @"</password>
+                                        <employeeNo>" + username + @"</employeeNo>
+                                        <password>" + password + @"</password>
                                     </ConfirmEmployeePassword>
                                 </Body>
                             </Envelope>";
             string response = WSConnection.CallWebService(req);
             return WSConnection.GetJSONResponse(response);
-        }  
+        }
     }
     public class OneTimePassXMLRequests
     {
@@ -50,7 +52,7 @@ namespace OshoPortal.Modules
             string ResetPassresponseString = @"<Envelope xmlns=""http://schemas.xmlsoap.org/soap/envelope/"">
                                                     <Body>
                                                         <RecoverLostPassword xmlns=""urn:microsoft-dynamics-schemas/codeunit/PortalLogin"">
-                                                            <employeeNo>"+ username + @"</employeeNo>
+                                                            <employeeNo>" + username + @"</employeeNo>
                                                         </RecoverLostPassword>
                                                     </Body>
                                                 </Envelope>";
