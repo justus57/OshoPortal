@@ -20,7 +20,7 @@
                                 <label for="Leave_Type" class="form-control-label">Items List</label>
                                 <select Class="form-control" ID="Leave_Type" name="Leave_Type" AutoPostBack="false" style="width:100%">
                                     <option selected value="0">---Select---</option>
-                                    @*@foreach (var item in ViewBag.Leaves)
+                                    @*@foreach (var item in ViewBag.itemlist)
                                         {
                                             <option value="@item" customAttribute="item.SomethingSpecial">
                                                 @item
@@ -59,19 +59,19 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="form-control-label" for="LeaveStartDay">Leave Start Date</label>
+                                <label class="form-control-label" for="LeaveStartDay">Date</label>
                                 @Html.TextBoxFor(model => model.LeaveStartDay, new { @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.LeaveStartDay, "", new { @class = "" })
                                 <div class="valid-feedback">Looks good!</div>
-                                <div class="invalid-feedback">The leave start date must be selected</div>
+                                <div class="invalid-feedback">The  date must be selected</div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label class="form-control-label">Leave Balance</label>
-                                @Html.TextBoxFor(model => model.Leave_Balance, new { @class = "form-control", id = "Leave_Balance", autofocus = "" })
+                                <label class="form-control-label">Comment</label>
+                                @Html.TextAreaFor(model => model.Leave_Balance, new { @class = "form-control", id = "Leave_Balance", autofocus = "" })
                                 @Html.ValidationMessageFor(model => model.Leave_Balance, "", new { @class = "" })
                             </div>
                         </div>
