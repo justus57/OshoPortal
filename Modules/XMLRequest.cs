@@ -58,4 +58,22 @@ namespace OshoPortal.Modules
             return WSConnection.GetJSONResponse(response);
         }
     }
+    public class ItemRequest
+    {
+        public static string itemList(string username)
+        {
+            string itemlist = @"<Envelope xmlns=""http://schemas.xmlsoap.org/soap/envelope/"">
+                            <Body>
+                                <GetItemList xmlns=""urn:microsoft-dynamics-schemas/codeunit/webportal"">
+                                    <itemList>
+                                        <Item xmlns=""urn:microsoft-dynamics-nav/xmlports/x51200""/>
+                                    </itemList>
+                                    <employeeNo>"+ username + @"</employeeNo>
+                                </GetItemList>
+                            </Body>
+                        </Envelope>";
+            string response = WSConnection.CallWebService(itemlist);
+            return WSConnection.GetJSONResponse(response);
+        }
+    }
 }

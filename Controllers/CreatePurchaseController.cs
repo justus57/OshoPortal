@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OshoPortal.Modules;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,8 @@ namespace OshoPortal.Controllers
 {
     public class CreatePurchaseController : Controller
     {
+        public string username { get; private set; }
+
         // GET: CreatePurchase view
         public ActionResult Index()
         {
@@ -16,8 +19,17 @@ namespace OshoPortal.Controllers
         
         public ActionResult CreatePurchase()
         {
-            return View();
+            username = System.Web.HttpContext.Current.Session["Username"].ToString();
+            try
+            {
+               string items = ItemRequest.itemList(username);
+                ViewBag.itemlist = items;
+            }
+            catch(Exception et)
+            {
 
+            }
+            return View();
         }
     }
 }

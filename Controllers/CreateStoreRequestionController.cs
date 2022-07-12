@@ -6,14 +6,14 @@ using System.Web.Mvc;
 
 namespace OshoPortal.Controllers
 {
-    public class CreateStoreRequestionController : Controller
+    public class CreateStoreRequisitionsController : Controller
     {
         // GET: CreateStoreRequestion
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult CreateStoreRequestion()
+        public ActionResult CreateStoreRequisition()
         {
             return View();
         }
