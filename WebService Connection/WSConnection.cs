@@ -13,6 +13,31 @@ namespace OshoPortal.WebService_Connection
     {
         //making connection to web service
         private static string responseString = null;
+        public class WebserviceConfig
+        {
+            public static Webportal.webportal ObjNav
+            {
+                get
+                {
+                    string URL_status = "http://btl-svr-01.btl.local:8047/BC180-1/WS/Osho%20Chemical%20Industries%20Ltd/Codeunit/PortalLogin";
+                    var username = @"BTL\Kasyoki.justus";
+                    var Password = @"$BTL@2022&*";
+                    ServicePointManager.Expect100Continue = true;
+                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                    ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+                    var creds = new NetworkCredential(username, Password, "");
+                    //myCache.Add(new Uri(URL_status), "NTLM");
+                    Webportal.webportal HR = new Webportal.webportal();
+                    HR.Url = URL_status;
+                    HR.Credentials = creds;
+                    HR.UseDefaultCredentials = true;
+                    HR.PreAuthenticate = true;
+
+                    return HR;
+                }
+            }
+
+        }
         public static string CallWebService(string req)
         {
             string action = "";

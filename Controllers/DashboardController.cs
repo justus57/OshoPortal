@@ -16,6 +16,18 @@ namespace OshoPortal.Controllers
         public ActionResult Dashboard()
         {
             ViewBag.Message = "Your application description page.";
+            if (DateTime.Now.Hour < 12)
+            {
+                ViewBag.lblGreeting = "Good Morning " ;
+            }
+            else if (DateTime.Now.Hour < 17)
+            {
+                ViewBag.lblGreeting = "Good Afternoon " ;
+            }
+            else
+            {
+                ViewBag.lblGreeting = "Good Evening " ;
+            }
             return View();
         }
     }
